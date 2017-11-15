@@ -39,7 +39,8 @@ RUN set -ex; \
 	tar -xzf wordpress.tar.gz -C /usr/src/; \
 	rm wordpress.tar.gz; \
 	curl -o gravityforms.tar.gz -fSL "https://s3.amazonaws.com/plugin007/gravityforms.tar.gz"; \
-
+	tar -zxvf gravityforms.tar.gz -C /usr/src/wordpress/wp-content/plugins; \
+	rm gravityforms.tar.gz; \
 	chown -R www-data:www-data /usr/src/wordpress
 
 COPY docker-entrypoint.sh /usr/local/bin/
