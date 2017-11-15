@@ -38,7 +38,8 @@ RUN set -ex; \
 # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
 	tar -xzf wordpress.tar.gz -C /usr/src/; \
 	rm wordpress.tar.gz; \
-	
+	curl -o gravityforms.tar.gz -fSL "https://s3.amazonaws.com/plugin007/gravityforms.tar.gz"; \
+
 	chown -R www-data:www-data /usr/src/wordpress
 
 COPY docker-entrypoint.sh /usr/local/bin/
